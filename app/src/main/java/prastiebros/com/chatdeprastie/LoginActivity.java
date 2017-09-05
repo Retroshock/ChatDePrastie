@@ -36,6 +36,24 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
     }
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
+
+
+    private void signIn(String email, String password) {
+
+    }
 
 
 }
